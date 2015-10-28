@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link href="canvas.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -28,6 +29,8 @@
 //            context.closePath();
 //            context.fill();
 
+
+
             /*线条颜色*/
 //            context.fillStyle = "rgb(0,0,0)";
 //            context.strokeStyle = "rgb(255,0,0)"
@@ -41,9 +44,27 @@
 //            context.fillText(text, 40, 40);
 //            context.strokeText(text, 40, 40);
 
+            /*清除一块区域*/
+//            context.clearRect(0,0,canvas.width,canvas.height);
+
+            /*重新设置宽度和高度后，画布也会清空*/
+//            canvas.attr("width", canvas.width);
+//            canvas.attr("height", canvas.height);
+
+            /*canvas填满窗口,配合canvas.css样式*/
+            $(window).resize(resizeCanvas);
+            function resizeCanvas() {
+                canvas.attr("width", $(window).get(0).innerWidth);
+                canvas.attr("height", $(window).get(0).innerHeight);
+                context.fillRect(0,0,canvas.width(),canvas.height());
+            }
+            resizeCanvas();
 
 
-        })
+
+        });
+
+
     </script>
 </head>
 <body>
